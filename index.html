@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Idwall</title>
+  <script src="dist/js/bundle.js"></script>
+  <link rel="stylesheet" type="text/css" href="dist/css/main.min.css">
+</head>
+<body>
+  <form enctype="multipart/form-data" method="post" class="container">
+    <div class="row">
+      <div class="columns eight">
+        <div id="file-display">
+          <div class="overlay-top"></div>
+          <div class="overlay-bottom"></div>
+          <div class="overlay-left"></div>
+          <div class="overlay-right"></div>
+          <div id="crop-area">
+            <div class="resize-nw"></div>
+            <div class="resize-n"></div>
+            <div class="resize-ne"></div>
+            <div class="resize-e"></div>
+            <div class="resize-se"></div>
+            <div class="resize-s"></div>
+            <div class="resize-sw"></div>
+            <div class="resize-w"></div>
+          </div>
+          <p>Drop files here</p>
+        </div>
+      </div>
+      <div class="columns four">
+        <input type="file" name="file-upload" id="file-upload" />
+        <input type="button" value="Browse..." id="file-upload-fake" />
+        <p id="file-name">No file selected.</p>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="button" value="Crop preview" id="crop-preview-button">
+        <div id="crop-preview"></div>
+        <input type="submit" value="Upload" />
+      </div>
+    </div>
+  </form>
+</body>
+</html>
