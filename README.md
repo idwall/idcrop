@@ -4,26 +4,26 @@ Cropping widget all in "VanillaJS".
 
 ### Development Environment Setup
 
-'''
+```
 npm install
 npm run server
 
-'''
+```
 
 ### Usage
 
-Javascript
+###### Javascript
 
-'''
+```
 
 const IdWidget = require("./widget.js");
 IdWidget.Widget.init("container_id")
 
-'''
+```
 
-HTML
+###### HTML
 
-'''
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,5 +36,4 @@ HTML
   <script type="text/javascript" src="./dist/js/bundle.min.js"></script>
 </body>
 </html>
-
-'''
+```
