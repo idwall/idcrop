@@ -1,3 +1,29 @@
+# IdWidget
+
+Cropping widget all in "VanillaJS".
+
+### Development Environment Setup
+
+'''
+npm install
+npm run server
+
+'''
+
+### Usage
+
+Javascript
+
+'''
+
+const IdWidget = require("./widget.js");
+IdWidget.Widget.init("container_id")
+
+'''
+
+HTML
+
+'''
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,3 +36,5 @@
   <script type="text/javascript" src="./dist/js/bundle.min.js"></script>
 </body>
 </html>
+
+'''
