@@ -4,9 +4,15 @@ const Widget = (function() {
     let elements = {},
         is_moving = false,
         is_resizing = false,
+        displayContainerId,
+        previewContainerId,
         cropped = "";
 
-    const init = function (container_id) {
+    const init = function (container_id, _displayContainerId, _previewContainerId) {
+
+        displayContainerId = _displayContainerId;
+        previewContainerId = _previewContainerId;
+
         // Generate the UI.
         createUI(container_id);
         fakeInput(elements.upload, elements.upload_fake);
@@ -43,32 +49,43 @@ const Widget = (function() {
          * @param string containerId - ID of the chosen outer container.
          */
 
-        const container = document.getElementById(container_id);
+        let html = "", htmlDisplayArea = "";
+    
+        
+        // Display Area content
+        
+        // Containers for displaying the dragged file.
+        const displayArea = document.getElementById(displayContainerId);
+        const previewArea = document.getElementById(previewContainerId);
+        
+        // Add classes to containers
+        displayArea.classList.add("idwall-display");
+        previewArea.classList.add("idwall-preview");
 
-        let html = "";
-        // Container for displaying the dragged file.
-        html += "<div id=\"idwall-display\">";
-            // Overlays for blurring out area outside the cropping area.
-            html += "<div id=\"idwall-overlay-top\"></div>";
-            html += "<div id=\"idwall-overlay-bottom\"></div>";
-            html += "<div id=\"idwall-overlay-left\"></div>";
-            html += "<div id=\"idwall-overlay-right\"></div>";
-            // Actual cropping container.
-            html += "<div id=\"idwall-crop\">";
-                // Resize handles.
-                html += "<div id=\"idwall-resize-nw\"></div>";
-                html += "<div id=\"idwall-resize-n\"></div>";
-                html += "<div id=\"idwall-resize-ne\"></div>";
-                html += "<div id=\"idwall-resize-e\"></div>";
-                html += "<div id=\"idwall-resize-se\"></div>";
-                html += "<div id=\"idwall-resize-s\"></div>";
-                html += "<div id=\"idwall-resize-sw\"></div>";
-                html += "<div id=\"idwall-resize-w\"></div>";
-            // End of cropping area.
-            html += "</div>";
-            html += "<p>Drop files here</p>";
+        // Overlays for blurring out area outside the cropping area.
+        htmlDisplayArea += "<div id=\"idwall-overlay-top\"></div>";
+        htmlDisplayArea += "<div id=\"idwall-overlay-bottom\"></div>";
+        htmlDisplayArea += "<div id=\"idwall-overlay-left\"></div>";
+        htmlDisplayArea += "<div id=\"idwall-overlay-right\"></div>";
+        // Actual cropping container.
+        htmlDisplayArea += "<div id=\"idwall-crop\">";
+            // Resize handles.
+            htmlDisplayArea += "<div id=\"idwall-resize-nw\"></div>";
+            htmlDisplayArea += "<div id=\"idwall-resize-n\"></div>";
+            htmlDisplayArea += "<div id=\"idwall-resize-ne\"></div>";
+            htmlDisplayArea += "<div id=\"idwall-resize-e\"></div>";
+            htmlDisplayArea += "<div id=\"idwall-resize-se\"></div>";
+            htmlDisplayArea += "<div id=\"idwall-resize-s\"></div>";
+            htmlDisplayArea += "<div id=\"idwall-resize-sw\"></div>";
+            htmlDisplayArea += "<div id=\"idwall-resize-w\"></div>";
+
+        // End of cropping area.
+        htmlDisplayArea += "</div>";
+        htmlDisplayArea += "<p>Drop files here</p>";
+
         // End of file display area.
-        html += "</div>";
+        displayArea.insertAdjacentHTML('beforeend', htmlDisplayArea);
+
         // File input for convenience.
         html += "<input type=\"file\" name=\"upload\" id=\"idwall-upload\" />";
         // Fake button for better style handling of the file input.
@@ -76,11 +93,9 @@ const Widget = (function() {
         html += "<p id=\"idwall-file-name\">No file selected.</p>";
         // Button for generating the cropped area base64.
         html += "<button id=\"idwall-preview-button\">Crop preview</button>";
-        // Area for previewing the cropped image;
-        html += "<div id=\"idwall-preview\"></div>";
 
-        // Inject.
-        container.innerHTML = html;
+        // Append to body.
+        document.body.insertAdjacentHTML( 'beforeend', html);
         // Populate elements JSON, now that they exist.
         elements = getElements(container_id);
     }
@@ -96,8 +111,8 @@ const Widget = (function() {
         return {
             container: document.getElementById(container_id),
             // Display area.
-            display: document.getElementById("idwall-display"),
-            hint: document.querySelector("#idwall-display p"),
+            display: document.getElementById(displayContainerId),
+            hint: document.querySelector(".idwall-display p"),
             overlays: document.querySelectorAll("[id^=idwall-overlay-]"),
             crop: document.getElementById("idwall-crop"),
             handles: document.querySelectorAll("[id^=idwall-resize-]"),
@@ -107,7 +122,7 @@ const Widget = (function() {
             filename: document.getElementById("idwall-file-name"),
             // Preview crop area.
             preview_button: document.getElementById("idwall-preview-button"),
-            preview: document.getElementById("idwall-preview")
+            preview: document.getElementById(previewContainerId)
         }
     }
 
@@ -133,7 +148,7 @@ const Widget = (function() {
         event = event || window.event;
         event.preventDefault();
 
-        elements.display.classList = "";
+        elements.display.classList.remove("hovered");
 
         if (typeof event.target.files !== "undefined" || checkForFile(event)) {
             // Get the file object and start the reader.
@@ -224,7 +239,7 @@ const Widget = (function() {
          */
 
         if (checkForFile(event)) {
-            elements.display.classList = "hovered";
+            elements.display.classList.add("hovered");
         }
     }
 
@@ -235,7 +250,7 @@ const Widget = (function() {
          */
 
         if (checkForFile(event)) {
-            elements.display.classList = "";
+            elements.display.classList.remove("hovered");
         }
     }
 
@@ -316,7 +331,7 @@ const Widget = (function() {
         is_resizing = true;
 
         const direction = event.target.id;
-        const container_bounds = container.getBoundingClientRect();
+        const container_bounds = elements.container.getBoundingClientRect();
         const crop = elements.crop,
               init_size = crop.getBoundingClientRect();
 
