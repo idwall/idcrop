@@ -35,8 +35,6 @@ const Widget = (function() {
         for (const handle of Array.from(elements.handles)) {
             handle.addEventListener("mousedown", startResizing, false);
         }
-        // Event for cropped area previewing.
-        elements.preview_button.addEventListener('click', previewCropped, false);
         // Clear resize and move events.
         window.addEventListener("mouseup", clear, false);
     }
@@ -91,8 +89,6 @@ const Widget = (function() {
         // Fake button for better style handling of the file input.
         html += "<button id=\"idwall-upload-fake\" />Browse...</button>";
         html += "<p id=\"idwall-file-name\">No file selected.</p>";
-        // Button for generating the cropped area base64.
-        html += "<button id=\"idwall-preview-button\">Crop preview</button>";
 
         // Append to body.
         document.body.insertAdjacentHTML( 'beforeend', html);
@@ -121,7 +117,6 @@ const Widget = (function() {
             upload_fake: document.getElementById("idwall-upload-fake"),
             filename: document.getElementById("idwall-file-name"),
             // Preview crop area.
-            preview_button: document.getElementById("idwall-preview-button"),
             preview: document.getElementById(previewContainerId)
         }
     }
@@ -144,7 +139,6 @@ const Widget = (function() {
         /*
          * Displays the inputted file and and the cropping UI.
          */
-
         event = event || window.event;
         event.preventDefault();
 
@@ -166,10 +160,13 @@ const Widget = (function() {
                 elements.hint.style.display = "none";
                 elements.crop.style.display = "block";
                 sizeOverlays();
+                previewCropped();
             }
 
             reader.readAsDataURL(file);
+
         }
+
     }
 
     const displayFilename = function (name) {
@@ -267,6 +264,8 @@ const Widget = (function() {
             event.preventDefault();
             event.dataTransfer.dropEffect = "copy";
         }
+
+
     }
 
     const startMoving = function (event) {
@@ -459,6 +458,8 @@ const Widget = (function() {
     }
 
     const clear = function () {
+
+        previewCropped();
         is_moving = false;
         is_resizing = false;
         document.onmousemove = function (){}
