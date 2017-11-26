@@ -1,4 +1,25 @@
-#container {
-  width: 50%;
-  margin: 2rem auto;
+
+$overlay-color: rgba(0,0,0,.5);
+
+$display-width: 600px;
+$display-height: 600px;
+
+$preview-width: 400px;
+$preview-height: 400px;
+
+$background-color: #666;
+$background-color-hover: #f00;
+
+.idwall-resize-area {
+  border: 2px dashed white;
+}
+
+$grabber-size: 15px;
+
+.idwall-resize-grabber {
+  height: $grabber-size;
+  width: $grabber-size;
+  border-radius: 100%;
+  background-color: white;
+  border: 1px solid #555;
 }

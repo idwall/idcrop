@@ -213,11 +213,11 @@ const Widget = (function() {
 
         const top = crop.offsetTop;
         const bottom = (crop_offset.offsetHeight -
-            (crop.offsetHeight + crop.offsetTop + 4))
+            (crop.offsetHeight + crop.offsetTop))
         overlays[0].style.height = top + "px";
         overlays[1].style.height = bottom + "px";
 
-        const middle = crop_offset.offsetHeight - (top + bottom + 4);
+        const middle = crop_offset.offsetHeight - (top + bottom);
         overlays[2].style.height = middle + "px";
         overlays[3].style.height = middle + "px";
 
@@ -226,7 +226,7 @@ const Widget = (function() {
 
         overlays[2].style.width = crop.offsetLeft + "px";
         overlays[3].style.width = (crop_offset.offsetWidth -
-            (crop.offsetLeft + crop.offsetWidth + 4)) + "px";
+            (crop.offsetLeft + crop.offsetWidth)) + "px";
     }
 
     const dragFileEnter = function (event) {
@@ -326,16 +326,18 @@ const Widget = (function() {
         /*
          * Gets all starting positions for the resizing action and starts it.
          */
-
+        
         is_resizing = true;
-
+        
+        const container = document.getElementById(displayContainerId);
         const direction = event.target.id;
-        const container_bounds = elements.container.getBoundingClientRect();
+        const container_bounds = container.getBoundingClientRect();
+        
         const crop = elements.crop,
-              init_size = crop.getBoundingClientRect();
-
+        init_size = crop.getBoundingClientRect();
+        
         const init_pos_x = event.clientX,
-              init_post_y = event.clientY;
+              init_pos_y = event.clientY;
 
         document.onmousemove = function(event) {
             event = event || window.event;
@@ -350,31 +352,31 @@ const Widget = (function() {
             if (direction == "idwall-resize-s") crop.style.height = y + "px";
 
             if (direction == "idwall-resize-w") {
-                const reverse_x = init_pos_x - pos_x  + init_size.width;
+                const reverse_x = init_pos_x - pos_x + init_size.width;
                 const rel_pos_x = pos_x - container_bounds.left;
                 crop.style.width = reverse_x + "px";
                 crop.style.left = rel_pos_x + "px";
             }
             if (direction == "idwall-resize-n") {
-                const reverse_y = init_post_y - pos_y  + init_size.height;
+                const reverse_y = init_pos_y - pos_y + init_size.height;
                 const rel_pos_y = pos_y - container_bounds.top;
                 crop.style.height = reverse_y + "px";
                 crop.style.top = rel_pos_y + "px";
             }
 
             if (direction == "idwall-resize-nw") {
-                const reverse_x = init_pos_x - pos_x  + init_size.width;
+                const reverse_x = init_pos_x - pos_x + init_size.width;
                 const rel_pos_x = pos_x - container_bounds.left;
                 crop.style.width = reverse_x + "px";
                 crop.style.left = rel_pos_x + "px";
-                const reverse_y = init_post_y - pos_y  + init_size.height;
+                const reverse_y = init_pos_y - pos_y + init_size.height;
                 const rel_pos_y = pos_y - container_bounds.top;
                 crop.style.height = reverse_y + "px";
                 crop.style.top = rel_pos_y + "px";
             }
             if (direction == "idwall-resize-ne") {
                 crop.style.width = x + "px";
-                const reverse_y = init_post_y - pos_y  + init_size.height;
+                const reverse_y = init_pos_y - pos_y + init_size.height;
                 const rel_pos_y = pos_y - container_bounds.top;
                 crop.style.height = reverse_y + "px";
                 crop.style.top = rel_pos_y + "px";
@@ -385,7 +387,7 @@ const Widget = (function() {
                 crop.style.height = y + "px";
             }
             if (direction == "idwall-resize-sw") {
-                const reverse_x = init_pos_x - pos_x  + init_size.width;
+                const reverse_x = init_pos_x - pos_x + init_size.width;
                 const rel_pos_x = pos_x - container_bounds.left;
                 crop.style.width = reverse_x + "px";
                 crop.style.left = rel_pos_x + "px";
