@@ -12,11 +12,10 @@ $grabber-offset: $grabber-size / 2;
   width: $preview-width;
   height: $preview-height;
   background-color: $background-color;
-  @extend .idwall-image-fit;  
+  @extend .idwall-image-fit;
 }
 
 .idwall-display {
-
   position: relative;
   width: $display-width;
   height: $display-height;

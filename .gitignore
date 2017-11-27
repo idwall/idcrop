@@ -59,3 +59,5 @@ typings/
 
 # node_modules tree
 package-lock.json
+
+/dist

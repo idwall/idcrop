@@ -1,14 +1,11 @@
 {
-  "name": "idwidget",
-  "version": "1.0.0",
-  "description": "Embed for uploading and cropping images and sending them through the Idwall API.",
+  "name": "idcrop",
+  "version": "0.0.8",
+  "description": "Embed for cropping images and returning a base64 of the cropped area.",
   "main": "index.js",
   "scripts": {
-    "postinstall": "webpack -p --config ./webpack.prod.config.js --progress",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --progress -p -d",
     "watch": "webpack --progress --watch -d",
-    "server": "webpack-dev-server --open -d",
     "start": "webpack-dev-server --open -d"
   },
   "keywords": [
