@@ -8,6 +8,10 @@
     "watch": "webpack --progress --watch -d",
     "start": "webpack-dev-server --open -d"
   },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/idwall/idcrop.git"
+  },
   "keywords": [
     "idwall",
     "crop",
