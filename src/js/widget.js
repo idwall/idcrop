@@ -47,15 +47,16 @@ const Widget = (function() {
          * @param string containerId - ID of the chosen outer container.
          */
 
-        let html = "", htmlDisplayArea = "";
-    
-        
+        let html = "",
+            htmlDisplayArea = "";
+
+
         // Display Area content
-        
+
         // Containers for displaying the dragged file.
         const displayArea = document.getElementById(displayContainerId);
         const previewArea = document.getElementById(previewContainerId);
-        
+
         // Add classes to containers
         displayArea.classList.add("idwall-display");
         previewArea.classList.add("idwall-preview");
@@ -76,18 +77,18 @@ const Widget = (function() {
             htmlDisplayArea += "<div id=\"idwall-resize-s\"></div>";
             htmlDisplayArea += "<div id=\"idwall-resize-sw\"></div>";
             htmlDisplayArea += "<div id=\"idwall-resize-w\"></div>";
-
         // End of cropping area.
         htmlDisplayArea += "</div>";
-        htmlDisplayArea += "<p>Drop files here</p>";
+        htmlDisplayArea += "<p>Drop files here or ";
+        // Fake button for better style handling of the file input.
+        htmlDisplayArea += "<a href=\"\" id=\"idwall-upload-fake\">browse...</a>"
+        htmlDisplayArea += "</p>"
 
         // End of file display area.
         displayArea.insertAdjacentHTML('beforeend', htmlDisplayArea);
 
         // File input for convenience.
-        html += "<input type=\"file\" name=\"upload\" id=\"idwall-upload\" />";
-        // Fake button for better style handling of the file input.
-        html += "<button id=\"idwall-upload-fake\" />Browse...</button>";
+        html += "<input type=\"file\" name=\"upload\" id=\"idwall-upload\" />"
         html += "<p id=\"idwall-file-name\">No file selected.</p>";
 
         // Append to body.
@@ -131,7 +132,12 @@ const Widget = (function() {
          */
 
         input.style.display = "none";
-        fake_input.addEventListener("click", () => input.click());
+        fake_input.addEventListener("click", function(event) {
+            event = event || window.event;
+            event.preventDefault();
+
+            input.click();
+        });
     }
 
     const startCropping = function (event) {
@@ -326,16 +332,16 @@ const Widget = (function() {
         /*
          * Gets all starting positions for the resizing action and starts it.
          */
-        
+
         is_resizing = true;
-        
+
         const container = document.getElementById(displayContainerId);
         const direction = event.target.id;
         const container_bounds = container.getBoundingClientRect();
-        
+
         const crop = elements.crop,
         init_size = crop.getBoundingClientRect();
-        
+
         const init_pos_x = event.clientX,
               init_pos_y = event.clientY;
 
