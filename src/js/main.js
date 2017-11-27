@@ -1,2 +1,2 @@
 const Widget = require("./widget.js");
-Widget.Widget.init("container");
+Widget.Widget.init("toolbarContainer", "displayContainer", "previewContainer");

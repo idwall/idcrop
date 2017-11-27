@@ -1,28 +1,31 @@
 @import "_theme";
 
-#idwall-preview {
-  width: 100%;
-  height: 200px;
-  margin: 1.5em 0;
+$grabber-offset: $grabber-size / 2;
+
+.idwall-image-fit {
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: #aaa;
   background-position: center;
 }
 
-#idwall-display {
+.idwall-preview {
+  width: $preview-width;
+  height: $preview-height;
+  background-color: $background-color;
+  @extend .idwall-image-fit;  
+}
+
+.idwall-display {
+
   position: relative;
-  height: 70vh;
-  width: 100%;
-  border: 2px solid white;
-  background-color: rgba(0,0,0,.5);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  width: $display-width;
+  height: $display-height;
+  background-color: $overlay-color;
   overflow: hidden;
+  @extend .idwall-image-fit;
 
   &.hovered {
-    background-color: red;
+    background-color: $background-color-hover;
   }
 
   p {
@@ -31,7 +34,7 @@
   }
 
   div[id^="idwall-overlay-"]{
-    background-color: rgba(0, 0, 0, .5);
+    background-color: $overlay-color;
     display: none;
     z-index: 998;
     position: absolute;
@@ -41,24 +44,20 @@
     top: 0;
     left: 0;
     width: 100%;
-    // background-color: red;
   }
 
   #idwall-overlay-bottom {
     bottom: 0;
     right: 0;
     width: 100%;
-    // background-color: yellow;
   }
 
   #idwall-overlay-left {
     left: 0;
-    // background-color: blue;
   }
 
   #idwall-overlay-right {
     right: 0;
-    // background-color: green;
   }
 
   #idwall-crop {
@@ -69,72 +68,73 @@
     position: absolute;
     top: 40%;
     left: 35%;
-    border: 2px dashed white;
+    @extend .idwall-resize-area;
 
     div[id^="idwall-resize-"] {
-      height: 15px;
-      width: 15px;
-      border-radius: 100%;
-      background-color: white;
-      border: 1px solid #555;
       position: absolute;
       z-index: 999;
+      @extend .idwall-resize-grabber;
     }
 
     #idwall-resize-nw {
-      top: -8px;
-      left: -8px;
+      top: -$grabber-offset;
+      left: -$grabber-offset;
       cursor: nw-resize;
     }
 
     #idwall-resize-n {
-      top: -8px;
-      left: calc(50% - 8px);
+      top: -$grabber-offset;
+      left: calc(50% - #{$grabber-offset});
       cursor: n-resize;
     }
 
     #idwall-resize-ne {
-      top: -8px;
-      right: -8px;
+      top: -$grabber-offset;
+      right: -$grabber-offset;
       cursor: ne-resize;
     }
 
     #idwall-resize-e {
-      top: calc(50% - 8px);
-      right: -9px;
+      top: calc(50% - #{$grabber-offset});
+      right: -$grabber-offset;
       cursor: e-resize;
     }
 
     #idwall-resize-se {
-      bottom: -8px;
-      right: -8px;
+      bottom: -$grabber-offset;
+      right: -$grabber-offset;
       cursor: se-resize;
     }
 
     #idwall-resize-s {
-      bottom: -8px;
-      left: calc(50% - 8px);
+      bottom: -$grabber-offset;
+      left: calc(50% - #{$grabber-offset});
       cursor: s-resize;
     }
 
     #idwall-resize-sw {
-      bottom: -8px;
-      left: -8px;
+      bottom: -$grabber-offset;
+      left: -$grabber-offset;
       cursor: sw-resize;
     }
 
     #idwall-resize-w {
-      top: calc(50% - 8px);
-      left: -9px;
+      top: calc(50% - #{$grabber-offset});
+      left: -$grabber-offset;
       cursor: w-resize;
     }
 
     &:hover {
+      cursor: move;
       cursor: grab;
+      cursor: -moz-grab;
+      cursor: -webkit-grab;
     }
 
     &:active {
       cursor: grabbing;
+      cursor: -moz-grabbing;
+      cursor: -webkit-grabbing;
     }
   }
 }
