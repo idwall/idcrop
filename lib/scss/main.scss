@@ -1,6 +1,6 @@
 @import "_theme";
 
-$grabber-offset: $grabber-size / 2;
+$grabber-offset: ($grabber-size / 2) + $grabber-border-width;
 
 .idwall-image-fit {
   background-size: contain;

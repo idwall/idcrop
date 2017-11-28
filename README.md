@@ -6,7 +6,7 @@ Embed for cropping images and returning a base64 of the cropped area.
 
 ```
 npm install
-npm run server
+npm run start
 
 ```
 

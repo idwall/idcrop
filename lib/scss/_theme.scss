@@ -14,12 +14,13 @@ $background-color-hover: #f00;
   border: 2px dashed white;
 }
 
-$grabber-size: 15px;
+$grabber-size: 16px;
+$grabber-border-width: 1px;
 
 .idwall-resize-grabber {
   height: $grabber-size;
   width: $grabber-size;
   border-radius: 100%;
   background-color: white;
-  border: 1px solid #555;
+  border: $grabber-border-width solid #555;
 }
