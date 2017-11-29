@@ -2,6 +2,15 @@
 
 $grabber-offset: ($grabber-size / 2) + $grabber-border-width;
 
+[id^="idwall-"],
+[class^="idwall-"] {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 .idwall-image-fit {
   background-size: contain;
   background-repeat: no-repeat;
