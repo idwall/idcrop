@@ -1,6 +1,6 @@
 {
   "name": "idcrop",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Embed for cropping images and returning a base64 of the cropped area.",
   "main": "index.js",
   "scripts": {
