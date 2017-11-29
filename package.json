@@ -1,8 +1,10 @@
 {
   "name": "idcrop",
   "version": "1.0.1",
-  "description": "Embed for cropping images and returning a base64 of the cropped area.",
-  "main": "index.js",
+  "description":
+    "Embed for cropping images and returning a base64 of the cropped area.",
+  "main": "dist/js/bundle.min.js",
+  "files": ["dist"],
   "scripts": {
     "build": "webpack --progress -p -d",
     "watch": "webpack --progress --watch -d",
@@ -12,12 +14,7 @@
     "type": "git",
     "url": "https://github.com/idwall/idcrop.git"
   },
-  "keywords": [
-    "idwall",
-    "crop",
-    "image",
-    "upload"
-  ],
+  "keywords": ["idwall", "crop", "image", "upload"],
   "author": "Beatriz Rizental",
   "license": "MIT",
   "devDependencies": {
