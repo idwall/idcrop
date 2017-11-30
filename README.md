@@ -4,12 +4,6 @@
 
 Embed for cropping images and returning a base64 of the cropped area.
 
-### Development Environment Setup
-
-```bash
-$ npm install & npm start
-```
-
 ### Usage
 
 ```bash
@@ -47,3 +41,22 @@ filename) and preview (cropped area preview).
   </body>
 </html>
 ```
+
+### Development Environment Setup
+
+```bash
+$ npm install & npm start
+```
+
+###### Linting
+
+We use a combination of eslint and prettier for the formatting and linting of our JS code.
+
+```bash
+$ npm run lint
+$ npm run fix
+```
+
+### License
+
+Copyright © 2017, [Idwall](https://idwall.co/). Released under the [MIT license](https://github.com/idwall/idcrop/LICENSE).
