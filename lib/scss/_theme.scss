@@ -1,17 +1,11 @@
-$overlay-color: rgba(0,0,0,.5);
-
 $display-width: 600px;
 $display-height: 600px;
 
 $preview-width: 400px;
 $preview-height: 400px;
 
-$background-color: #666;
-$background-color-hover: #f00;
-
-.idwall-resize-area {
-  border: 2px dashed white;
-}
+$background-color: #eaeaea;
+$background-color-hover: #666;
 
 $grabber-size: 16px;
 $grabber-border-width: 1px;
@@ -25,12 +19,12 @@ $grabber-border-width: 1px;
 }
 
 #idcrop {
-  width: 1000px;
+  width: 1200px;
   margin: 2em auto;
 
   #displayContainer,
   #toolbarContainer,
   #previewContainer {
-    margin-bottom: 2rem;
+    margin-bottom: 2rem,;
   }
 }

@@ -2,7 +2,7 @@
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-Embed for cropping images and returning a base64 of the cropped area.
+Image cropper utility that crops an image in any polygonal shape chosen and returns a base64 of the cropped area.
 
 ### Usage
 
@@ -15,8 +15,15 @@ $ npm install idcrop
 ```js
 const idcrop = require('idcrop')
 
-idcrop.init('toolbarContainer', 'displayContainer', 'previewContainer')
+idcrop.init('toolbarContainer', 'displayContainer', 'previewContainer', 4)
 ```
+
+The paramenters for the `init` function are, in order:
+
+- The id of the container you want the toolbar to render at.
+- The id of the container you want the display to render at.
+- The id of the container you want the preview to render at.
+- The number of sides you want the cropping polygon to have.
 
 ###### HTML
 
