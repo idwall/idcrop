@@ -36,7 +36,7 @@ filename) and preview (cropped area preview).
   <head>
     <meta charset="UTF-8">
     <title>IdCrop</title>
-    <link rel="stylesheet" type="text/css href="https://unpkg.com/idcrop@1.0.1/dist/css/main.min.css">
+    <link rel="stylesheet" type="text/css href="https://unpkg.com/idcrop@1.2.1/dist/css/main.min.css">
   </head>
 
   <body>

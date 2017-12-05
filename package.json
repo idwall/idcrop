@@ -1,7 +1,7 @@
 {
   "name": "idcrop",
-  "version": "1.2.0",
-  "description": "Embed for cropping images and returning a base64 of the cropped area.",
+  "version": "1.2.1",
+  "description": "Image cropper utility that crops an image in any polygonal shape chosen and returns a base64 of the cropped area.",
   "main": "dist/js/bundle.min.js",
   "files": [
     "dist"
