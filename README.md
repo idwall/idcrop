@@ -15,20 +15,22 @@ $ npm install idcrop
 ```js
 const idcrop = require('idcrop')
 
-idcrop.init('toolbarContainer', 'displayContainer', 'previewContainer', 4)
+idcrop.init('#toolbarContainer', '#displayContainer', '#previewContainer', 4)
 ```
 
 The paramenters for the `init` function are, in order:
 
-- The id of the container you want the toolbar to render at.
-- The id of the container you want the display to render at.
-- The id of the container you want the preview to render at.
+- The CSS selector of the container you want the toolbar to render at.
+- The CSS selector of the container you want the display to render at.
+- The CSS selector of the container you want the preview to render at.
 - The number of sides you want the cropping polygon to have.
 
 ###### HTML
 
 You must create a container for display (cropping area), toolbar (for now, only
 filename) and preview (cropped area preview).
+
+**For now, you can only have one cropper per page.**
 
 ```html
 <!DOCTYPE html>
