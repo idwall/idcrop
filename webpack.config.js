@@ -9,6 +9,11 @@ module.exports = {
   output: {
     filename: "./dist/js/bundle.min.js"
   },
+  devtool: 'source-map',
+  stats: {
+    colors: true,
+    reasons: true
+  },
   module: {
     rules: [
       {
@@ -17,6 +22,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
+            sourceMap: true,
             presets: ["env"]
           }
         }
@@ -33,8 +39,7 @@ module.exports = {
               loader: "sass-loader",
               options: {
                 sourceMap: true,
-                outputStyle: "compressed",
-
+                outputStyle: "compressed"
               }
             }]
           })

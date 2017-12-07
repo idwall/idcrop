@@ -65,7 +65,7 @@ $grabber-offset: ($grabber-size / 2) + $grabber-border-width;
     }
   }
 
-  #idwall-crop {
+  canvas {
     position: absolute;
     z-index: 998;
   }
