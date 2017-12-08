@@ -13,9 +13,16 @@ $ npm install idcrop
 ###### Javascript
 
 ```js
-const idcrop = require('idcrop')
+const IdCrop = require("idcrop");
 
-idcrop.init('#toolbarContainer', '#displayContainer', '#previewContainer', 4)
+const idcrop = new IdCrop(
+  "#displayContainer",
+  "#previewContainer",
+  "#toolbarContainer",
+  6
+);
+
+idcrop.init();
 ```
 
 The paramenters for the `init` function are, in order:
