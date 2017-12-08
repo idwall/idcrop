@@ -1,7 +1,7 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const extractSass = new ExtractTextPlugin({
-    filename: "./dist/css/main.min.css"
+  filename: "./dist/css/main.min.css"
 });
 
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
   output: {
     filename: "./dist/js/bundle.min.js"
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   stats: {
     colors: true,
     reasons: true
