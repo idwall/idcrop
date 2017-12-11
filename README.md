@@ -73,6 +73,14 @@ $ npm run lint
 $ npm run fix
 ```
 
+###### Publishing
+
+We have a small npm script that handles the bumping of the version and the publishing of the package for us.
+
+```bash
+$ npm --no-git-tag version <newversion>
+```
+
 ### License
 
 Copyright © 2017, [Idwall](https://idwall.co/). Released under the [MIT license](https://github.com/idwall/idcrop/LICENSE).

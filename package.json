@@ -11,7 +11,9 @@
     "watch": "webpack --progress --watch -d",
     "start": "webpack-dev-server --open -d",
     "lint": "./node_modules/.bin/eslint ./lib/js/*.js && ./node_modules/.bin/eslint ./lib/js/idcrop/*.js",
-    "fix": "./node_modules/.bin/eslint ./lib/js/*.js --fix && ./node_modules/.bin/eslint ./lib/js/idcrop/*.js --fix"
+    "fix": "./node_modules/.bin/eslint ./lib/js/*.js --fix && ./node_modules/.bin/eslint ./lib/js/idcrop/*.js --fix",
+    "version": "npm run build",
+    "postversion": "npm publish"
   },
   "repository": {
     "type": "git",
