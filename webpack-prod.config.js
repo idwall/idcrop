@@ -14,7 +14,8 @@ module.exports = {
     filename: "./dist/js/bundle.min.js"
   },
   devtool: "source-map",
-  stats: git    colors: true,
+  stats: {
+    colors: true,
     reasons: true
   },
   module: {
@@ -45,8 +46,5 @@ module.exports = {
   plugins: [
     extractSass,
     uglifyJS
-  ]
-};
- extractSass
   ]
 };
