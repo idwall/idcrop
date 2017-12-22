@@ -7,7 +7,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "webpack --progress -p -d",
+    "build": "webpack --config ./webpack-prod.config.js --progress -p -d",
     "watch": "webpack --progress --watch -d",
     "start": "webpack-dev-server --open -d",
     "lint": "./node_modules/.bin/eslint ./lib/js/*.js && ./node_modules/.bin/eslint ./lib/js/idcrop/*.js",
