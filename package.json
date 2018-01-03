@@ -1,13 +1,13 @@
 {
   "name": "idcrop",
-  "version": "1.2.2",
+  "version": "1.2.9",
   "description": "Image cropper utility that crops an image in any polygonal shape chosen and returns a base64 of the cropped area.",
-  "main": "dist/js/bundle.min.js",
+  "main": "index.js",
   "files": [
-    "dist"
+    "lib"
   ],
   "scripts": {
-    "build": "webpack --progress -p -d",
+    "build": "webpack --config ./webpack-prod.config.js --progress -p -d",
     "watch": "webpack --progress --watch -d",
     "start": "webpack-dev-server --open -d",
     "lint": "./node_modules/.bin/eslint ./lib/js/*.js && ./node_modules/.bin/eslint ./lib/js/idcrop/*.js",
