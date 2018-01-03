@@ -57,9 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
-# node_modules tree
-package-lock.json
-
 /dist
 
 # MacOS files
