@@ -1,6 +1,6 @@
 {
   "name": "idcrop",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Image cropper utility that crops an image in any polygonal shape chosen and returns a base64 of the cropped area.",
   "main": "index.js",
   "files": [
