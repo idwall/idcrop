@@ -31,6 +31,7 @@ The only required key in the configuration object is the CSS selector for the di
 - **displaySelector** CSS selector for the containerof the display area (**required**, **type** CSS Selector)
 - **toolbarSelector** CSS selector for the container of the toolbar (**default** "" **type** CSS Selector)
 - **previewSelector** CSS selector for the container of the preview area  (**default** "" **type** CSS Selector)
+- **closeButtonSelector** CSS selector for the close button when Inifity is the number of points  (**default** "" **type** CSS Selector)
 - **allowUpload** Wether or not to allow image upload (**default** true **type** boolean)
 - **numPoints** Number of points (**default** 4 **type** integer)
 - **croppingArea**
