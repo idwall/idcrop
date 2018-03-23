@@ -4,6 +4,8 @@
 
 Image cropper utility that crops an image in any polygonal shape chosen and returns a base64 of the cropped area.
 
+> Demo: https://idwall.github.io/idcrop/
+
 ### Usage
 
 ```bash
