@@ -9,9 +9,14 @@ const uglifyJS = new UglifyJsPlugin({
 })
 
 module.exports = {
-  entry: "./lib/js/prod.js",
+  entry: {
+    IdCrop: './lib/js/idcrop/IdCrop.js'
+  },
   output: {
-    filename: "./dist/js/bundle.min.js"
+    filename: "./dist/js/bundle.min.js",
+    libraryTarget: 'var',
+    // `library` determines the name of the global variable
+    library: '[name]'
   },
   devtool: "source-map",
   stats: {
