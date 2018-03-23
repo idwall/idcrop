@@ -6,7 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="./assets/css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/skeleton.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/idcrop.css">
-
 </head>
 <body>
 	<div class="container" style="margin-top: 60px; margin-bottom: 60px; max-width: 720px">
@@ -29,6 +28,15 @@
 		    <div id="preview"></div>
 		</div>
     </div>
-    <script src="./dist/bundle.js"></script>
+    <script src="https://unpkg.com/idcrop@2.1.2/dist/js/bundle.min.js"></script>
+   	<script>
+   		const c = new IdCrop({
+		  displaySelector: "#display",
+		  toolbarSelector: "#toolbar",
+		  previewSelector: "#preview"
+		});
+
+		c.init();
+   	</script>
 </body>
 </html>
